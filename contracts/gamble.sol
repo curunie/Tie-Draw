@@ -13,7 +13,10 @@ contract gamble {
             else num2 = randNum;
         }
         
-        if (num1 == num2) result = 1;
+        if (num1 == num2) {
+            if (num1 == 6) result = 2;
+            else result = 1;
+        }
         else result = 0;
     }
 }
