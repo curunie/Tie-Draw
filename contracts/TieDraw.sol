@@ -1,7 +1,7 @@
 pragma solidity >=0.5.0 <0.6.0;
 import "./ERC20.sol";
 
-contract Game {
+contract Game is ERC20 {
     address public banker;
     address public player;
     uint public betBalance;
@@ -12,11 +12,11 @@ contract Game {
     function () external payable {}
     
     modifier onlyOwner {
-        require(msg.sender == owner);
+        require(msg.sender == player);
         _;
     }
 
-    function playerBet(address _player, uint _betBalance) public {
+    function bet(address _player, uint _betBalance) public {
         player = _player;
         betBalance = _betBalance;
     }
@@ -39,24 +39,24 @@ contract Game {
 
     function withdrawTokens(address _tokenContract) onlyOwner public {
         require(result != 0);
+        ERC20 token = ERC20(_tokenContract);
         if(result == 1) {
-            ERC20 token = ERC20(_tokenContract);
-            uint tokenBalance = token.balanceOf(this);
-            token.transfer(player, tokenBalance);
+            uint tokenBalance = token.balanceOf(address(this));
+            uint tokenReward = uint(tokenBalance) * uint(3);
+            token.transfer(player, tokenReward);
             WithdrewTokens(_tokenContract, msg.sender, tokenReward);
         }
 
         if(result == 2) {
-            ERC20 token = ERC20(_tokenContract);
-            uint tokenBalance = token.balanceOf(this);
-            uint tokenReward = uint(tokenBalance) * uint(6)
+            uint tokenBalance = token.balanceOf(address(this));
+            uint tokenReward = uint(tokenBalance) * uint(6);
             token.transfer(player, tokenReward);
             WithdrewTokens(_tokenContract, msg.sender, tokenReward);
         }
     }
 
     function info() public view returns(address, uint) {
-        return(player, this.balance);
+        return(player, address(this),balance);
     }
 
     event Received(address from, uint256 amount);
