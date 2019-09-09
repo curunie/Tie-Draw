@@ -58,4 +58,8 @@ contract Game {
     function info() public view returns(address, uint) {
         return(player, this.balance);
     }
+
+    event Received(address from, uint256 amount);
+    event Withdrew(address to, uint256 amount);
+    event WithdrewTokens(address tokenContract, address to, uint256 amount);
 }
