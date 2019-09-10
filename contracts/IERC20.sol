@@ -5,4 +5,5 @@ interface IERC20 {
   function transfer(uint256 _value) external;
   function send1(address _to, uint256 _value) external;
   event Transfered(address indexed from, address indexed to, uint256 value);
+
 }
