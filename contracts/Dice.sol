@@ -36,8 +36,8 @@ contract DiceToken is IERC20 {
   
   function getTokens() external {
     require(balances[msg.sender] == 0);
-    balances[gameContract] = balances[gameContract].sub(3);
-    balances[msg.sender] = balances[msg.sender].add(3);
+    balances[gameContract] = balances[gameContract].sub(5);
+    balances[msg.sender] = balances[msg.sender].add(5);
   }
   
   function send1(address _to, uint256 _value) external {
