@@ -94,22 +94,7 @@ contract DiceToken is IERC20, GameRule {
     balances[gameContract] = balances[gameContract].sub(player_return);
     balances[msg.sender] = balances[msg.sender].add(player_return);
     emit Transfered(gameContract, msg.sender, player_return);
-    
+    betAmount = 0;
     return true;
-  }
-  function transfer(address recipient, uint256 amount) external returns (bool) {
-      
-  }
-    
-  function allowance(address owner, address spender) external view returns (uint256) {
-
-  }
-
-  function approve(address spender, uint256 amount) external returns (bool) {
-
-  }
-
-  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {
-
   }
 }
