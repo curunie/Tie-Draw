@@ -7,6 +7,9 @@
     <title>Tie Draw</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css" />
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+    <script src="app.js" charset="UTF-8" type="text/javascript"></script>
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
 </head>
 
 <body>
@@ -16,8 +19,8 @@
         </div>
 
         <div class="setup">
-            <span id="get_token"><button type="submit" class="btn btn-outline-success btn-lg">Get Token</button></span>
-            <span id="start"><button type="submit" class="btn btn-outline-success btn-lg">Start</button></span>
+            <span id="get_token"><button onclick="get_token()" class="btn btn-outline-success btn-lg">Get Token</button></span>
+            <span id="start"><button onclick="start()" class="btn btn-outline-success btn-lg">Start</button></span>
         </div>
 
         <div class="betting">
@@ -43,5 +46,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
-
 </html>
+
