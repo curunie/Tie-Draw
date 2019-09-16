@@ -6,15 +6,16 @@ import './SafeMath.sol';
 contract DiceToken is IERC20 {
   using SafeMath for uint256;
 
-  string public name = 'DiceMoney';
-  string public symbol = 'DICE';
+  string public name = 'Gamble Chip Token';
+  string public symbol = 'CHIP';
 
-  uint256 public totalSupply = 100000000;
+  uint256 public totalSupply = 1000000000000;
   uint256 public betAmount = 0;
   uint256 public num1;
   uint256 public num2;
   uint256 public result;
 
+  address private adminAddr = 0x0000000000000000000000000000000000000000;
   address public gameContract = 0x0000000000000000000000000000000000000000;
   address public player =0x0000000000000000000000000000000000000000;
 
@@ -23,15 +24,18 @@ contract DiceToken is IERC20 {
   event Transfered(address indexed from, address indexed to, uint256 value);
 
   function Token() external {
+    require(msg.sender == adminAddr);
     require(balances[msg.sender] == 0);
     balances[msg.sender] = totalSupply;
   }
   
   function setContAddr(address _gameContract) external {
+    require(msg.sender == adminAddr);
     gameContract = _gameContract;
   }
 
   function adminSend(uint256 amount) external returns (bool) {
+    require(msg.sender == adminAddr);
     require(balances[msg.sender] >= amount);
     require(amount > 0);
     balances[msg.sender] = balances[msg.sender].sub(amount);
