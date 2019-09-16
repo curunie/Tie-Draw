@@ -60,10 +60,10 @@ contract DiceToken is IERC20 {
   function getTokens() external returns (bool) {
     require(msg.sender == player);  
     require(balances[msg.sender] == 0);
-    require(balances[gameContract] >= 5);
-    balances[gameContract] = balances[gameContract].sub(5);
-    balances[msg.sender] = balances[msg.sender].add(5);
-    emit Transfered(gameContract, msg.sender, 5);
+    require(balances[gameContract] >= 10);
+    balances[gameContract] = balances[gameContract].sub(10);
+    balances[msg.sender] = balances[msg.sender].add(10);
+    emit Transfered(gameContract, msg.sender, 10);
     return true;
   }
   
@@ -71,7 +71,7 @@ contract DiceToken is IERC20 {
     require(msg.sender == player);
     require(balances[msg.sender] >= _betAmount);
     require(_betAmount > 0);
-    require(balances[gameContract] >= _betAmount * 6);
+    require(balances[gameContract] >= _betAmount.mul(6));
     betAmount = _betAmount;
     balances[msg.sender] = balances[msg.sender].sub(betAmount);
     balances[gameContract] = balances[gameContract].add(betAmount);
@@ -88,20 +88,24 @@ contract DiceToken is IERC20 {
     
     for (uint i = 0; i < 2; i++) {
             uint randNum = uint(keccak256(abi.encodePacked(now, msg.sender, i))) % 6;
-            randNum = randNum + 1;
+            randNum = randNum.add(1);
             if (i == 0) num1 = randNum;
             else num2 = randNum;
         }
 
         if (num1 == num2) {
-            if (num1 == 6) result = 5;
-            else result = 1;
+            if (num1 == 6) {
+             result = 2;
+             player_return = betAmount.mul(10); 
+            }
+            else {
+              result = 1;
+              player_return = betAmount.mul(5);
+            }
         }
         else result = 0;
     
     if (result == 0) false;
-    
-    player_return = betAmount*(20*result);
     
     require(balances[gameContract] >= player_return);
     
