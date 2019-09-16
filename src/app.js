@@ -1,13 +1,9 @@
-var express = require("express");
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-server.listen(8080);
+const express = require("express");
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
-app.use(express.static("public"));
-app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
-})
+server.listen(8080);
 
 var Web3 = require('web3');
 web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/[infura_project_id]")); // 네트워크(메인,ropten) 주소
@@ -19,4 +15,9 @@ var proofContract = web3.eth.contract(
     {"anonymous":false,"inputs":[{"indexed":false,"name":"status","type":"bool"},
     {"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"owner","type":"string"},
     {"indexed":false,"name":"fileHash","type":"string"}],"name":"logFileAddedStatus","type":"event"}]);
-var proof = proofContract.at(""); // 컨트랙트 주소
+    var proof = proofContract.at(""); // 컨트랙트 주소
+
+app.use(express.static("public"));
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/index.html");
+})
