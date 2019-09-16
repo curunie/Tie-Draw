@@ -15,19 +15,14 @@ contract DiceToken is IERC20, GameRule {
   uint256 public totalSupply = 100000;
   uint256 public betAmount = 0;
 
-  address public administrator;
   address public gameContract = 0x0000000000000000000000000000000000000000;
   address public player =0x0000000000000000000000000000000000000000;
 
   mapping (address => uint256) balances;
+  mapping (address => mapping (address => uint256)) internal allowed;
   event Transfered(address indexed from, address indexed to, uint256 value);
 
-  constructor() internal {
-    administrator = msg.sender;
-  }
-
   function Token() external {
-    require(msg.sender == administrator); 
     require(balances[msg.sender] == 0);
     balances[msg.sender] = totalSupply;
   }
@@ -36,6 +31,19 @@ contract DiceToken is IERC20, GameRule {
     gameContract = _gameContract;
   }
 
+  function adminSend(uint256 amount) external returns (bool) {
+    require(balances[msg.sender] >= amount);
+    require(amount > 0);
+    balances[msg.sender] = balances[msg.sender].sub(amount);
+    balances[gameContract] = balances[gameContract].add(amount);
+    emit Transfered(msg.sender, gameContract, amount);
+    return true;
+  }
+
+//   ****************************************************************************
+//   ****************************************************************************
+//   ****************************************************************************
+
   function login(address _player) external {
     require(gameContract != 0x0000000000000000000000000000000000000000);
     player = _player;
@@ -43,16 +51,6 @@ contract DiceToken is IERC20, GameRule {
   
   function balanceOf(address account) external view returns (uint256 balance) {
     return balances[account];
-  }
-
-  function adminSend(uint256 amount) external returns (bool) {
-    require(msg.sender == administrator);
-    require(balances[msg.sender] >= amount);
-    require(amount > 0);
-    balances[msg.sender] = balances[msg.sender].sub(amount);
-    balances[gameContract] = balances[gameContract].add(amount);
-    emit Transfered(msg.sender, gameContract, amount);
-    return true;
   }
   
   function getTokens() external returns (bool) {
@@ -70,7 +68,7 @@ contract DiceToken is IERC20, GameRule {
     require(balances[msg.sender] >= _betAmount);
     require(_betAmount > 0);
     require(balances[gameContract] >= _betAmount * 6);
-    uint256 betAmount = _betAmount;
+    betAmount = _betAmount;
     balances[msg.sender] = balances[msg.sender].sub(betAmount);
     balances[gameContract] = balances[gameContract].add(betAmount);
     emit Transfered(msg.sender, gameContract, betAmount);
@@ -95,6 +93,41 @@ contract DiceToken is IERC20, GameRule {
     balances[msg.sender] = balances[msg.sender].add(player_return);
     emit Transfered(gameContract, msg.sender, player_return);
     betAmount = 0;
+    return true;
+  }
+  
+//   ****************************************************************************
+//   ****************************************************************************
+//   ****************************************************************************
+  
+  function transfer(address recipient, uint256 amount) external returns (bool) {
+    require(recipient != address(0));
+    require(amount <= balances[msg.sender]);
+
+    // SafeMath.sub will throw if there is not enough balance.
+    balances[msg.sender] = balances[msg.sender].sub(amount);
+    balances[recipient] = balances[recipient].add(amount);
+    emit Transfered(msg.sender, recipient, amount);
+    return true;
+  }
+  
+  function allowance(address owner, address spender) external view returns (uint256) {
+    return allowed[owner][spender];
+  }
+  
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {
+    require(recipient != address(0));
+    require(amount <= balances[sender]);
+    require(amount <= allowed[sender][msg.sender]);
+
+    balances[sender] = balances[sender].sub(amount);
+    balances[recipient] = balances[recipient].add(amount);
+    allowed[sender][msg.sender] = allowed[sender][msg.sender].sub(amount);
+    return true;
+  }
+  
+  function approve(address spender, uint256 amount) public returns (bool) {
+    allowed[msg.sender][spender] = amount;
     return true;
   }
 }
