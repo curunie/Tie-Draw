@@ -10,7 +10,7 @@ app.get("/", function (req, res) {
 })
 
 var Web3 = require('web3');
-web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545")); // 네트워크(메인,ropten) 주소
+web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/[infura_project_id]")); // 네트워크(메인,ropten) 주소
 var proofContract = web3.eth.contract(
     [{"constant":false,"inputs":[{"name":"fileHash","type":"string"}],
     "name":"get","outputs":[{"name":"timestamp","type":"uint256"},{"name":"owner","type":"string"}],
