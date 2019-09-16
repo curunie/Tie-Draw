@@ -71,7 +71,7 @@ contract DiceToken is IERC20 {
     require(msg.sender == player);
     require(balances[msg.sender] >= _betAmount);
     require(_betAmount > 0);
-    require(balances[gameContract] >= _betAmount.mul(6));
+    require(balances[gameContract] >= _betAmount.mul(10));
     betAmount = _betAmount;
     balances[msg.sender] = balances[msg.sender].sub(betAmount);
     balances[gameContract] = balances[gameContract].add(betAmount);
