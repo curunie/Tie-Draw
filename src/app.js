@@ -4,7 +4,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 var Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.WebsocketProvider("https://ropsten.infura.io/v3"));
+const web3 = new Web3(new Web3.providers.WebsocketProvider("https://rinkby.infura.io/v3"));
 
 let ABI = 
     [
