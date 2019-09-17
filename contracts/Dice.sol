@@ -2,19 +2,20 @@ pragma solidity >=0.5.0 <0.6.0;
 
 import './IERC20.sol';
 import './SafeMath.sol';
-import './GameRule.sol';
 
-contract DiceToken is IERC20, GameRule {
+contract DiceToken is IERC20 {
   using SafeMath for uint256;
 
-  GameRule gamerule = new GameRule();
+  string public name = 'Gamble Chip Token';
+  string public symbol = 'CHIP';
 
-  string public name = 'DiceMoney';
-  string public symbol = 'DICE';
-
-  uint256 public totalSupply = 100000;
+  uint256 public totalSupply = 1000000000000;
   uint256 public betAmount = 0;
+  uint256 public num1;
+  uint256 public num2;
+  uint256 public result;
 
+  address private adminAddr = 0x0000000000000000000000000000000000000000;
   address public gameContract = 0x0000000000000000000000000000000000000000;
   address public player =0x0000000000000000000000000000000000000000;
 
@@ -23,15 +24,18 @@ contract DiceToken is IERC20, GameRule {
   event Transfered(address indexed from, address indexed to, uint256 value);
 
   function Token() external {
+    require(msg.sender == adminAddr);
     require(balances[msg.sender] == 0);
     balances[msg.sender] = totalSupply;
   }
   
   function setContAddr(address _gameContract) external {
+    require(msg.sender == adminAddr);
     gameContract = _gameContract;
   }
 
   function adminSend(uint256 amount) external returns (bool) {
+    require(msg.sender == adminAddr);
     require(balances[msg.sender] >= amount);
     require(amount > 0);
     balances[msg.sender] = balances[msg.sender].sub(amount);
@@ -56,10 +60,10 @@ contract DiceToken is IERC20, GameRule {
   function getTokens() external returns (bool) {
     require(msg.sender == player);  
     require(balances[msg.sender] == 0);
-    require(balances[gameContract] >= 5);
-    balances[gameContract] = balances[gameContract].sub(5);
-    balances[msg.sender] = balances[msg.sender].add(5);
-    emit Transfered(gameContract, msg.sender, 5);
+    require(balances[gameContract] >= 10);
+    balances[gameContract] = balances[gameContract].sub(10);
+    balances[msg.sender] = balances[msg.sender].add(10);
+    emit Transfered(gameContract, msg.sender, 10);
     return true;
   }
   
@@ -67,7 +71,7 @@ contract DiceToken is IERC20, GameRule {
     require(msg.sender == player);
     require(balances[msg.sender] >= _betAmount);
     require(_betAmount > 0);
-    require(balances[gameContract] >= _betAmount * 6);
+    require(balances[gameContract] >= _betAmount.mul(10));
     betAmount = _betAmount;
     balances[msg.sender] = balances[msg.sender].sub(betAmount);
     balances[gameContract] = balances[gameContract].add(betAmount);
@@ -80,12 +84,28 @@ contract DiceToken is IERC20, GameRule {
     require(msg.sender == player);
     require(betAmount != 0);
     
-    uint256 player_return = 0;
-    uint256 result = gamerule.game();
-    if(result == 0)     
-      return false;
-      
-    player_return = betAmount*(3*result);
+    uint256 player_return;
+    
+    for (uint i = 0; i < 2; i++) {
+            uint randNum = uint(keccak256(abi.encodePacked(now, msg.sender, i))) % 6;
+            randNum = randNum.add(1);
+            if (i == 0) num1 = randNum;
+            else num2 = randNum;
+        }
+
+        if (num1 == num2) {
+            if (num1 == 6) {
+             result = 2;
+             player_return = betAmount.mul(10); 
+            }
+            else {
+              result = 1;
+              player_return = betAmount.mul(5);
+            }
+        }
+        else result = 0;
+    
+    if (result == 0) false;
     
     require(balances[gameContract] >= player_return);
     
@@ -104,7 +124,6 @@ contract DiceToken is IERC20, GameRule {
     require(recipient != address(0));
     require(amount <= balances[msg.sender]);
 
-    // SafeMath.sub will throw if there is not enough balance.
     balances[msg.sender] = balances[msg.sender].sub(amount);
     balances[recipient] = balances[recipient].add(amount);
     emit Transfered(msg.sender, recipient, amount);
