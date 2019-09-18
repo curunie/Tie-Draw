@@ -3,6 +3,8 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var library = require('./library.js');
+  
+
 
 // 자동 로그인 
 function addEventListener() {
