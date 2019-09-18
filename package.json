@@ -1,0 +1,25 @@
+{
+  "name": "tie-draw",
+  "version": "1.0.0",
+  "description": "Our first project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lnhog403/Tie-Draw.git"
+  },
+  "keywords": [
+    "Tie-Draw"
+  ],
+  "author": "Insu, Heeyoun, Hyungeun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lnhog403/Tie-Draw/issues"
+  },
+  "homepage": "https://github.com/lnhog403/Tie-Draw#readme",
+  "dependencies": {
+    "web3": "^1.2.1"
+  }
+}
