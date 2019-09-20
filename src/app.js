@@ -1,10 +1,30 @@
 var express = require("express");
 var app = express();
-var server = require('http').createServer(app);
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var fs = require('fs');
 var io = require('socket.io')(server);
 var library = require('./library.js');
-  
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+app.use(express.static('public'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(session({
+    secret: 'sBld-2eSU-w0gj',
+    reserve: false,
+    saveUninitialized: true
+}));
+
+var server = app.listen(8080, function () {
+    console.log("Server is Running... port 8080");
+})
+
+var router = require('./router/main')(app, fs);
 
 // 자동 로그인 
 function addEventListener() {
@@ -38,7 +58,3 @@ async function get_token() {
     const record = await game_contract.methods.getTokens().call();
     console.log(record);
 }
-
-
-server.listen(8080);
-console.log("Server is Running...");

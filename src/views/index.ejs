@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Tie-Draw</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Z-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div id="title">
+                <h2>Tie - DRAW</h2>
+            </div>
+
+            <div class="setup">
+                <span id="get_token"><button onclick="get_token()" class="btn btn-outline-success btn-lg">
+                    Get Token</button></span>
+                <span id="start"><button onclick="start()" class="btn btn-outline-success btn-lg">
+                    Start</button></span>
+            </div>
+
+            <div class="game">
+                <table>
+                    <tr>
+                        <th id="com">Num 1</th>
+                        <th><% num1 %></th>
+                        <th id="player">Num 2</th>
+                        <th id="player_dice"><% num2 %></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
