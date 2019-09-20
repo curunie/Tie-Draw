@@ -7,17 +7,22 @@
     <title>Tie Draw</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css" />
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
-    <script src="app.js" charset="UTF-8" type="text/javascript"></script>
-    <script src="library.js" charset="utf-8" type="text/javascript"></script>
-    <script src="./node_modules/web3/dist/web3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+    <script type="text/javascript" src="dapp.js"></script>
+    <script type="text/javascript">
+        var Web3 = require('web3');
+        var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+        var networ_version = web3.version.network;
+        console.log(networ_version);
+    </script>
 </head>
 
 <body>
     <div class="main">
         <div id="title">
             <h2>Tie - Draw</h2>
-            <button class="btn btn-outline-success btn-lg" id='login'>login</button>
+            <button class="btn btn-outline-success btn-lg" id='balance'>balance</button>
+            <input type="text" class="balanceOf">
         </div>
 
         <div class="setup">
@@ -26,7 +31,7 @@
         </div>
 
         <div class="betting">
-            <input  type="text" name="bet" placeholder="Token to bet">
+            <input type="text" name="bet" placeholder="Token to bet">
             <button type="button" class="btn btn-outline-success">Betting</button>
         </div>
 
@@ -47,16 +52,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+    
     <script>
-        //login 버튼 누를 시
-        let login = document.querySelector('#login');
-        login.onclick = addEventListener;
-        
-        // get_token button 누를 시
-        let get_token = document.querySelector('#get_token');
-        get_token.onclick = getToken;
+        //balance 버튼 누를 시
+        let checkbalance = document.querySelector('#balance');
+        checkbalance.onclick = dapp.balance;
+           
     </script>
 </body>
 </html>
-
