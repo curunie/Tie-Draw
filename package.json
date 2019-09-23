@@ -24,8 +24,6 @@
     "web3-min-js": "^1.0.0",
     "window": "^4.2.6",
     "express": "~4.17.1",
-    "ejs": "~2.4.1",
-    "body-parser": "~1.14.2",
-    "express-session": "~1.13.0"
+    "socket.io": "~2.3.0"
   }
 }
