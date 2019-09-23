@@ -9,12 +9,7 @@
     <link rel="stylesheet" type="text/css" href="app.css" />
     <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
     <script type="text/javascript" src="dapp.js"></script>
-    <script type="text/javascript">
-        var Web3 = require('web3');
-        var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-        var networ_version = web3.version.network;
-        console.log(networ_version);
-    </script>
+    
 </head>
 
 <body>
@@ -54,10 +49,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     
     <script>
+       
         //balance 버튼 누를 시
         let checkbalance = document.querySelector('#balance');
-        checkbalance.onclick = dapp.balance;
-           
+        checkbalance.onclick = balance;           
     </script>
 </body>
 </html>

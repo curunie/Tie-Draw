@@ -1,13 +1,9 @@
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/572765d2b955435da0d957225d819dc8"));
-const Window = require('window');
-const window = new Window();
-let TieDraw;
-var userAccount;
 
-function startDapp() {
-    const TieDrawAddresss = "0x569fbb05968a1038e4352be754edb4259829de3e"
-    const TieDrawsABI =
+// contract 끌어오기
+const TieDrawAddresss = "0x569fbb05968a1038e4352be754edb4259829de3e"
+const TieDrawsABI =
         [
             {
                 "constant": false,
@@ -376,34 +372,10 @@ function startDapp() {
                 "type": "function"
             }
         ];
-    TieDraw = new web3.eth.Contract(TieDrawsABI, TieDrawAddresss); //contract 생성
+TieDraw = new web3.eth.Contract(TieDrawsABI, TieDrawAddresss);
 
-    var accountInterval = setInterval(function () {
-        if (web3.eth.accounts[0] !== userAccount) {
-            userAccount = web3.eth.accounts[0];
-        }
-    })
-} 
+//balanceOf 함수
+TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call()
+    .then(console.log)
 
-    startDapp()
-/* 잔고확인
-let balanceOfs = web3.eth.getBalance('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b');
-balanceOfs.then((result) => console.log('balance' + result));
-*/
-
-// 플레이어 현재 토큰 잔고 확인
-/*exports.balanceOf = function (address) {
-    console.log("작동중")
-    return TieDraw.methods.balanceOf(address).call()
-};*/
-
-window.addEventListener('load', function () {
-    if (typeof web3 !== 'undefined') {
-        web3js = new Web3(web3.currentProvider);
-    } else {
-
-    }
-
-})
-
-TieDraw.options;
+//
