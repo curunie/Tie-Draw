@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var fs = require('fs');
-var io = require('socket.io')(server);
 var library = require('./library.js');
 
 app.set('views', __dirname + '/views');
