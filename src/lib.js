@@ -375,7 +375,7 @@ const TieDrawsABI =
 TieDraw = new web3.eth.Contract(TieDrawsABI, TieDrawAddresss);
 
 //balanceOf 함수
-TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call()
-    .then(console.log)
+var totalBalance = TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call()
+    // .then(console.log)
 
 //

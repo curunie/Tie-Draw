@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/lnhog403/Tie-Draw#readme",
   "dependencies": {
-    "socket.io": "^2.2.0",
     "web3": "^1.2.1",
     "web3-min-js": "^1.0.0",
-    "window": "^4.2.6"
+    "window": "^4.2.6",
+    "express": "~4.17.1",
+    "ejs": "~2.4.1",
+    "body-parser": "~1.14.2",
+    "express-session": "~1.13.0"
   }
 }
