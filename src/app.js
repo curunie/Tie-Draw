@@ -16,7 +16,7 @@ app.engine('html', require('ejs').renderFile);
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
     secret: 'sBld-2eSU-w0gj',
     reserve: false,
@@ -24,8 +24,8 @@ app.use(session({
 }));
 
 
-var server = app.listen(8080, function () {
-    console.log("Server is Running... port 8080");
+var server = app.listen(3000, function () {
+    console.log("Server is Running... port 3000");
 })
 
 
@@ -407,6 +407,8 @@ const TieDrawsABI =
 
 TieDraw = new web3.eth.Contract(TieDrawsABI, TieDrawAddresss);
 
+/*
+
 // 자동 로그인 
 function addEventListener() {
     if (typeof web3 !== 'undefined') {
@@ -440,8 +442,10 @@ async function getToken() {
     console.log(record);
 }
 
+*/
+
 //balanceOf 함수
-var totalBalance = TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call()
+totalBalance: TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call();
     // .then(console.log)
 
 //
