@@ -1,7 +1,22 @@
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/572765d2b955435da0d957225d819dc8"));
+var Tx = require('ethereumjs-tx').Transaction;
+
+/*
+var privateKey = Buffer.from('41c66908c123f04a7567b6ce71f441e0ae189b7ec93d6fef2bbaf9aced9b6e7f', 'hex');
+var rawTx = {
+    gasPrice: '0x5AF3107A4000',
+    gasLimit: '0x2710',
+    to: '0xf6516CC850c653169700105208CAE2a456767602',
+    value: '0x1',
+    nonce: '0x07D0'
+}
+var tx = new Tx(rawTx, {'chain': 'rinkeby'});
+tx.sign(privateKey);
+var serializedTx = tx.serialize();*/
 
 // contract 끌어오기
+
 const TieDrawAddresss = "0x569fbb05968a1038e4352be754edb4259829de3e"
 const TieDrawsABI =
         [
@@ -374,8 +389,52 @@ const TieDrawsABI =
         ];
 TieDraw = new web3.eth.Contract(TieDrawsABI, TieDrawAddresss);
 
-//balanceOf 함수
-var totalBalance = TieDraw.methods.balanceOf('0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b').call()
-    // .then(console.log)
+//남은 토큰 조회
+function balance() {
+    return web3.eth.getBalance(address, function(err, result) {
+        balance = result    
+    })
+}
 
-//
+//getTokens 함수
+/*function getGamemoney() {
+    var amount = web3.utils.toHex(1e16);
+    web3.eth.getAccounts(function (error, result) {
+        web3.eth.sendTransaction({
+            from: '0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b',
+            to: '0xf6516CC850c653169700105208CAE2a456767602',
+            value: "10000000000000",
+            gasPrice: web3.utils.toHex(2 * 1e9),
+            gasLimit: web3.utils.toHex(210000),
+            data: TieDraw.methods.transfer('0xf6516CC850c653169700105208CAE2a456767602', amount).encodeABI(),
+            
+        }, function (err, transactionHash) {
+            if (!err) {
+                console.log(transactionHash + "success");
+            }
+        })
+    })
+
+}*/
+
+function getGamemoney() {
+    return web3.eth.accounts.signTransaction({
+        from: "0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b",
+        to: "0xf6516CC850c653169700105208CAE2a456767602",
+        gasPrice: "20000000000",
+        gas: "21000",
+        value: "1000000000000000",
+        data: ""
+    }, '0x41c66908c123f04a7567b6ce71f441e0ae189b7ec93d6fef2bbaf9aced9b6e7f').then(console.log);
+}
+
+TieDraw.methods.getTokens().call().then(function(result) {
+    console.log(result)
+})
+
+//betting 함수
+function bet() {
+    let balanceOfContract = amount.times(web3.toBigNumber(10).pow(decimals));
+    TieDraw.transfer()
+}
+
