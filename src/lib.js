@@ -1,6 +1,7 @@
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/572765d2b955435da0d957225d819dc8"));
 var Tx = require('ethereumjs-tx').Transaction;
+var contract = require("truffle-contract");
 
 /*
 var privateKey = Buffer.from('41c66908c123f04a7567b6ce71f441e0ae189b7ec93d6fef2bbaf9aced9b6e7f', 'hex');
@@ -428,9 +429,10 @@ function getGamemoney() {
     }, '0x41c66908c123f04a7567b6ce71f441e0ae189b7ec93d6fef2bbaf9aced9b6e7f').then(console.log);
 }
 
-TieDraw.methods.getTokens().call().then(function(result) {
-    console.log(result)
-})
+function getToken() {
+    let message = TieDraw.methods.getTokens().call();
+    return message;
+}
 
 //betting 함수
 function bet() {
@@ -438,3 +440,4 @@ function bet() {
     TieDraw.transfer()
 }
 
+getToken()
