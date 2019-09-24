@@ -1,30 +1,34 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
+    <title>Tie Draw</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tie Draw</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="app.css" />
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
-    <script src="HYapp.js" charset="UTF-8" type="text/javascript"></script>
-    <script src="./node_modules/web3/dist/web3.min.js"></script>
-</head>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+    <script type="text/javascript" src="lib.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>    
+</head>
 <body>
     <div class="main">
         <div id="title">
             <h2>Tie - Draw</h2>
+            <button class="btn-balance" id='balance'>Balance</button>
+            <input type="text" class="balanceOf">
         </div>
 
         <div class="setup">
-            <span id="get_token"><button onclick="get_token()" class="btn btn-outline-success btn-lg">Get Token</button></span>
-            <span id="start"><button onclick="start()" class="btn btn-outline-success btn-lg">Start</button></span>
+            <span id="get_token"><button class="btn btn-outline-success btn-lg">Get Token</button></span>
+            <span id="start"><button class="btn btn-outline-success btn-lg">Start</button></span>
         </div>
 
         <div class="betting">
-            <input  type="text" name="bet" placeholder="Token to bet">
+            <input type="text" name="bet" placeholder="Token to bet">
             <button type="button" class="btn btn-outline-success">Betting</button>
         </div>
 
@@ -45,6 +49,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    
+    <script>
+       
+        //balance 버튼 누를 시
+        let checkbalance = document.querySelector('#balance');
+        checkbalance.onclick = balance;           
+    </script>
 </body>
 </html>
-
