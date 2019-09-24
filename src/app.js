@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
@@ -10,5 +11,6 @@ app.use('/views', express.static(__dirname + '/views'));
 server.listen(port, function () {
     console.log("Server is Running... port 3000")
 });
+
 
 // module.exports = router;

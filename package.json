@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/lnhog403/Tie-Draw#readme",
   "dependencies": {
+
     "ethereumjs-tx": "^2.1.1",
     "express": "~4.17.1",
     "truffle-contract": "^4.0.31",
