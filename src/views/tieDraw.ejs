@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Tie-Draw</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Z-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" type="text/css" href="/src/views/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/src/views/css/style.css">
+        <script type="text/javascript" src="/src/views/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/src/views/js/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="/src/views/js/popper.min.js"></script>
+        <script type="text/javascript" src="/src/views/js/web3.min.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div id="title">
+                <h2>Tie - DRAW</h2>
+            </div>
+
+            <div class="setup">
+                <span id="get_token"><button onclick="get_token()" class="btn btn-outline-success btn-lg">
+                    Get Token</button></span>
+                <span id="start"><button onclick="start()" class="btn btn-outline-success btn-lg">
+                    Start</button></span>
+            </div>
+
+            <div class="game">
+                <table>
+                    <tr>
+                        <th id="com">Num 1</th>
+                        <th><% num1 %></th>
+                        <th id="player">Num 2</th>
+                        <th id="player_dice"><% num2 %></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
