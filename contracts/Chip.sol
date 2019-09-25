@@ -5,8 +5,9 @@ import './SafeMath.sol';
 import './BlackJack.sol';
 import './Dice.sol';
 import './OddEven.sol';
+import './RockPaperScissors.sol';
 
-contract Chip is IERC20, BlackJack, Dice, OddEven {
+contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
   using SafeMath for uint256;
 
   string public name = 'Gamble Chip Token';
