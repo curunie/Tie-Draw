@@ -4,8 +4,9 @@ import './IERC20.sol';
 import './SafeMath.sol';
 import './BlackJack.sol';
 import './Dice.sol';
+import './OddEven.sol';
 
-contract Chip is IERC20, BlackJack, Dice {
+contract Chip is IERC20, BlackJack, Dice, OddEven {
   using SafeMath for uint256;
 
   string public name = 'Gamble Chip Token';
@@ -15,6 +16,8 @@ contract Chip is IERC20, BlackJack, Dice {
   uint256 public betAmount = 0;
   uint256 public DiceResult;
   uint256 public BlackJackResult;
+  uint256 public OddEvenResult;
+  uint256 public RPSResult;
 
   // address private adminAddr = 0x0000000000000000000000000000000000000000;
   address public gameContract = 0x0000000000000000000000000000000000000000;
@@ -84,7 +87,7 @@ contract Chip is IERC20, BlackJack, Dice {
 
     require(msg.sender == player);
     require(betAmount != 0);
-    require(Result != 0);
+    require(Result != 5);
     
     uint256 player_return;
     player_return = betAmount.mul(3);
@@ -99,7 +102,7 @@ contract Chip is IERC20, BlackJack, Dice {
     balances[msg.sender] = balances[msg.sender].add(player_return.mul(DiceResult));
     emit Transfered(gameContract, msg.sender, player_return.mul(DiceResult));
     betAmount = 0;
-    DiceResult = 5;
+    Result = 5;
     return true;
   }
 
@@ -107,7 +110,7 @@ contract Chip is IERC20, BlackJack, Dice {
 
     require(msg.sender == player);
     require(betAmount != 0);
-    require(Result != 0);
+    require(Result != 5);
     
     uint256 player_return;
     player_return = betAmount.mul(3);
@@ -122,7 +125,53 @@ contract Chip is IERC20, BlackJack, Dice {
     balances[msg.sender] = balances[msg.sender].add(player_return.mul(BlackJackResult));
     emit Transfered(gameContract, msg.sender, player_return.mul(BlackJackResult));
     betAmount = 0;
-    BlackJackResult = 5;
+    Result = 5;
+    return true;
+  }
+
+  function OddEvenReward() external returns (bool) {
+
+    require(msg.sender == player);
+    require(betAmount != 0);
+    require(Result != 5);
+    
+    uint256 player_return;
+    player_return = betAmount.mul(3);
+    OddEvenResult = Result;
+
+    if (OddEvenResult == 0) false;
+    if (OddEvenResult == 5) false;
+    
+    require(balances[gameContract] >= player_return);
+    
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(OddEvenResult));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(OddEvenResult));
+    emit Transfered(gameContract, msg.sender, player_return.mul(OddEvenResult));
+    betAmount = 0;
+    Result = 5;
+    return true;
+  }
+
+  function RPSReward() external returns (bool) {
+
+    require(msg.sender == player);
+    require(betAmount != 0);
+    require(Result != 5);
+    
+    uint256 player_return;
+    player_return = betAmount.mul(3);
+    RPSResult = Result;
+
+    if (OddEvenResult == 0) false;
+    if (OddEvenResult == 5) false;
+    
+    require(balances[gameContract] >= player_return);
+    
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(RPSResult));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(RPSResult));
+    emit Transfered(gameContract, msg.sender, player_return.mul(RPSResult));
+    betAmount = 0;
+    Result = 5;
     return true;
   }
   
