@@ -1,0 +1,26 @@
+2_deploy_contracts.js
+=====================
+
+   Deploying 'DiceToken'
+   ---------------------
+   > transaction hash:    0xfa516aeb429278e69b469404d0c52ebe4704d7104f3f4ffd5e689e8aadb4e5aa
+   > Blocks: 2            Seconds: 17
+   > contract address:    0xFe4b2B68Da40A04d5585c2678be83879188dBc02
+   > block number:        5149122
+   > block timestamp:     1569375702
+   > account:             0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b
+   > balance:             19.785956919914
+   > gas used:            2380470
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0476094 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 5149123)
+   > confirmation number: 2 (block: 5149124)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0476094 ETH
