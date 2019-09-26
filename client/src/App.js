@@ -10,62 +10,80 @@ class App extends Component {
     this.state = {
       diceInstance: null,
       myAccount: null,
-      myToken: null,
+      myToken: 0,
       web3: null
     };
   }
   
   componentWillMount() {
-    getWeb3.then (results => {
-      this.setState({
-        web3: results.web3
-      });
-      this.instantiateContract();
-    }).catch (() => {
-      console.log("Error finding web3.");
-    });
+    getWeb3
+      .then(results => {
+        this.setState({
+          web3: results.web3
+        })
 
-
+        this.instantiateContract()
+      })
+      .catch(() => {
+        console.log('Error finding web3.')
+      })
   }
 
   instantiateContract() {
-    const contract = require('truffle-contract')
-    const TieDraw = contract(Dice)
-
-    console.dir(TieDraw)
+    const contract = require('truffle-contract');
+    const TieDraw = contract(Dice);
     TieDraw.setProvider(this.state.web3.currentProvider);
-    console.dir(this.state.web3.currentProvider)
-
+  
     this.state.web3.eth.getAccounts((error, accounts) => {
       if (!error) {
+        console.log("accounts" + accounts[0])
+        console.dir(this.state.web3)
 
-        console.log("getAccounts" + accounts)
         TieDraw.deployed().then(instance => {
           this.setState({
-            DiceInstance: instance,
+            diceInstance: instance,
             myAccount: "0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b"
+            //myAccount: accounts[0]
+            
           });
- 
-          console.dir(this.state.DiceInstance)
-          //this.getTokens();
+            this.balance();    
         });
       } else { console.log('error' + error)
     }
     });
   }
 
-  getTokens = () => {
-    this.state.DiceInstance.getTokens({
-        from: this.state.myAccount,
-        value: this.state.web3.utils.isBigNumber(10000000000000),
-        gas: 900000
-    });
+  //balanceOf function
+  balance=()=> {
+    this.state.diceInstance.balanceOf(
+      this.state.myAccount
+    ).then(result=> { 
+      //from: this.state.myAccount,
+      //gas: 500000
+      this.setState({myToken: result.toNumber()})
+      console.log(this.state.myToken)
+    })
   }
 
+  //getTokens function
+  getToken=()=> {
+    this.state.diceInstance.getTokens()
+    .then(result => {
+      this.setState()
+    })
+  }
+  
+   
   render() {
     return (
       
-      <div><button onClick={this.balanceOf}>Get Token</button></div>
+      <div>
+        <h1>TieDraw Test</h1>
+        <div>
+          블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
+        </div>
+        your accout: {this.state.myToken}
+      </div>
             
     );
   }
