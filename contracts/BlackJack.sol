@@ -6,7 +6,7 @@ contract BlackJack {
     string[] public Cards = ["H of 2", "H of 3", "H of 4", "H of 5", "H of 6", "H of 7", "H of 8" , "H of 9", "C of 2", "C of 3", "C of 4", "C of 5", "C of 6", "C of 7", "C of 8", "C of 9", "S of 2", "S of 3", "S of 4", "S of 5", "S of 6", "S of 7", "S of 8", "S of 9", "D of 2", "D of 3", "D of 4", "D of 5", "D of 6", "D of 7", "D of 8", "D of 9", "D of 10", "D of Q", "D of J", "D of K", "D of A",  "H of 10", "H of Q", "H of J", "H of K", "H of A", "C of 10", "C of Q", "C of J", "C of K", "C of A", "S of 10", "S of Q", "S of J", "S of K", "S of A"];
     uint256 public PlayerCost = 0;
     uint256 public DealerCost = 0;
-    uint256 public Result = 5;
+    uint256 public BlackJackResult = 5;
     uint256 public count1 = 0;
     uint256 public count2 = 0;
     uint256 public CountDraw = 0;
@@ -75,19 +75,19 @@ contract BlackJack {
     }
 
     function BlackJackEnd() public {
-        require(Result == 5);
+        require(BlackJackResult == 5);
         if(DealerCost <= 15) DealerDraw();
         if(PlayerCost > DealerCost) {
-            if(PlayerCost > 21) Result = 0;
-            else Result = 1;
+            if(PlayerCost > 21) BlackJackResult = 0;
+            else BlackJackResult = 1;
         }
 
         if(PlayerCost <= DealerCost) {
             if(DealerCost > 21) {
-                if(PlayerCost > 21) Result = 0;
-                else Result = 1;
+                if(PlayerCost > 21) BlackJackResult = 0;
+                else BlackJackResult = 1;
             }
-            else Result = 0;
+            else BlackJackResult = 0;
         }
     }
 
@@ -101,6 +101,6 @@ contract BlackJack {
         random = 0;
         PlayerHand = ["", "", "", "", ""];
         DealerHand = ["", "", "", "", ""];
-        Result = 5;
+        BlackJackResult = 5;
     }
 }

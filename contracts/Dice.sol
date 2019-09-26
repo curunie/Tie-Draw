@@ -1,7 +1,7 @@
 pragma solidity >=0.5.0 <0.6.0;
 
 contract Dice {
-    uint public Result = 5;
+    uint public DiceResult = 5;
     uint public DiceComNum1;
     uint public DiceMyNum2;
 
@@ -13,9 +13,9 @@ contract Dice {
         DiceMyNum2 = number;
     
         if (DiceComNum1 == DiceMyNum2) {
-            if (DiceMyNum2 == 6) Result = 2;
-            else Result = 1;
+            if (DiceMyNum2 == 6) DiceResult = 2;
+            else DiceResult = 1;
         }
-        else Result = 0;
+        else DiceResult = 0;
     }
 }
