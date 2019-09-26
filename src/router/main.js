@@ -1,13 +1,14 @@
 module.exports = function (app, fs) {
     app.get('/', function (req,res) {
         res.render('index', {
-            title: '홈페이지',
-            name: req.query.nameQuery
+            userName: req.query.nameQuery
         })
     });
 
     app.get('/login', function (req,res) {
-        res.render('login')
+        res.render('login', {
+            reqSignUp: req.query.signupQuery
+        })
     });
 
     app.get('/userInfo', function (req,res) {
