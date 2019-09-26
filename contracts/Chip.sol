@@ -1,13 +1,12 @@
 pragma solidity >=0.5.0 <0.6.0;
 
-import './IERC20.sol';
 import './SafeMath.sol';
 import './BlackJack.sol';
 import './Dice.sol';
 import './OddEven.sol';
 import './RockPaperScissors.sol';
 
-contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
+contract Chip is BlackJack, Dice, OddEven, RockPaperScissors {
   using SafeMath for uint256;
 
   string public name = 'Gamble Chip Token';
@@ -15,12 +14,8 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
 
   uint256 public totalSupply = 1000000000000;
   uint256 public betAmount = 0;
-  uint256 public DiceResult;
-  uint256 public BlackJackResult;
-  uint256 public OddEvenResult;
-  uint256 public RPSResult;
+  uint256 public Result = 5;
 
-  // address private adminAddr = 0x0000000000000000000000000000000000000000;
   address public gameContract = 0x0000000000000000000000000000000000000000;
   address public player =0x0000000000000000000000000000000000000000;
 
@@ -29,18 +24,15 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
   event Transfered(address indexed from, address indexed to, uint256 value);
 
   function Token() external {
-    // require(msg.sender == adminAddr);
     require(balances[msg.sender] == 0);
     balances[msg.sender] = totalSupply;
   }
   
   function SetContAddr(address _gameContract) external {
-    // require(msg.sender == adminAddr);
     gameContract = _gameContract;
   }
 
   function AdminSend(uint256 amount) external returns (bool) {
-    // require(msg.sender == adminAddr);
     require(balances[msg.sender] >= amount);
     require(amount > 0);
     balances[msg.sender] = balances[msg.sender].sub(amount);
@@ -88,22 +80,22 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
 
     require(msg.sender == player);
     require(betAmount != 0);
-    require(Result != 5);
+    require(DiceResult != 5);
     
     uint256 player_return;
     player_return = betAmount.mul(3);
-    DiceResult = Result;
+    Result = DiceResult;
 
-    if (DiceResult == 0) false;
-    if (DiceResult == 5) false;
+    if (Result == 0) false;
+    if (Result == 5) false;
     
     require(balances[gameContract] >= player_return);
     
-    balances[gameContract] = balances[gameContract].sub(player_return.mul(DiceResult));
-    balances[msg.sender] = balances[msg.sender].add(player_return.mul(DiceResult));
-    emit Transfered(gameContract, msg.sender, player_return.mul(DiceResult));
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(Result));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(Result));
+    emit Transfered(gameContract, msg.sender, player_return.mul(Result));
     betAmount = 0;
-    Result = 5;
+    DiceResult = 5;
     return true;
   }
 
@@ -115,18 +107,18 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
     
     uint256 player_return;
     player_return = betAmount.mul(3);
-    BlackJackResult = Result;
+    Result = BlackJackResult;
 
-    if (BlackJackResult == 0) false;
-    if (BlackJackResult == 5) false;
+    if (Result == 0) false;
+    if (Result == 5) false;
     
     require(balances[gameContract] >= player_return);
     
-    balances[gameContract] = balances[gameContract].sub(player_return.mul(BlackJackResult));
-    balances[msg.sender] = balances[msg.sender].add(player_return.mul(BlackJackResult));
-    emit Transfered(gameContract, msg.sender, player_return.mul(BlackJackResult));
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(Result));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(Result));
+    emit Transfered(gameContract, msg.sender, player_return.mul(Result));
     betAmount = 0;
-    Result = 5;
+    BlackJackResult = 5;
     return true;
   }
 
@@ -134,22 +126,22 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
 
     require(msg.sender == player);
     require(betAmount != 0);
-    require(Result != 5);
+    require(OddEvenResult != 5);
     
     uint256 player_return;
     player_return = betAmount.mul(3);
-    OddEvenResult = Result;
+    Result = OddEvenResult;
 
-    if (OddEvenResult == 0) false;
-    if (OddEvenResult == 5) false;
+    if (Result == 0) false;
+    if (Result == 5) false;
     
     require(balances[gameContract] >= player_return);
     
-    balances[gameContract] = balances[gameContract].sub(player_return.mul(OddEvenResult));
-    balances[msg.sender] = balances[msg.sender].add(player_return.mul(OddEvenResult));
-    emit Transfered(gameContract, msg.sender, player_return.mul(OddEvenResult));
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(Result));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(Result));
+    emit Transfered(gameContract, msg.sender, player_return.mul(Result));
     betAmount = 0;
-    Result = 5;
+    OddEvenResult = 5;
     return true;
   }
 
@@ -157,56 +149,22 @@ contract Chip is IERC20, BlackJack, Dice, OddEven, RockPaperScissors {
 
     require(msg.sender == player);
     require(betAmount != 0);
-    require(Result != 5);
+    require(RPSResult != 5);
     
     uint256 player_return;
     player_return = betAmount.mul(3);
-    RPSResult = Result;
+    Result = RPSResult;
 
-    if (OddEvenResult == 0) false;
-    if (OddEvenResult == 5) false;
+    if (Result == 0) false;
+    if (Result == 5) false;
     
     require(balances[gameContract] >= player_return);
     
-    balances[gameContract] = balances[gameContract].sub(player_return.mul(RPSResult));
-    balances[msg.sender] = balances[msg.sender].add(player_return.mul(RPSResult));
-    emit Transfered(gameContract, msg.sender, player_return.mul(RPSResult));
+    balances[gameContract] = balances[gameContract].sub(player_return.mul(Result));
+    balances[msg.sender] = balances[msg.sender].add(player_return.mul(Result));
+    emit Transfered(gameContract, msg.sender, player_return.mul(Result));
     betAmount = 0;
-    Result = 5;
-    return true;
-  }
-  
-//   ****************************************************************************
-//   ****************************************************************************
-//   ****************************************************************************
-  
-  function transfer(address recipient, uint256 amount) external returns (bool) {
-    require(recipient != address(0));
-    require(amount <= balances[msg.sender]);
-
-    balances[msg.sender] = balances[msg.sender].sub(amount);
-    balances[recipient] = balances[recipient].add(amount);
-    emit Transfered(msg.sender, recipient, amount);
-    return true;
-  }
-  
-  function allowance(address owner, address spender) external view returns (uint256) {
-    return allowed[owner][spender];
-  }
-  
-  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {
-    require(recipient != address(0));
-    require(amount <= balances[sender]);
-    require(amount <= allowed[sender][msg.sender]);
-
-    balances[sender] = balances[sender].sub(amount);
-    balances[recipient] = balances[recipient].add(amount);
-    allowed[sender][msg.sender] = allowed[sender][msg.sender].sub(amount);
-    return true;
-  }
-  
-  function approve(address spender, uint256 amount) public returns (bool) {
-    allowed[msg.sender][spender] = amount;
+    RPSResult = 5;
     return true;
   }
 }
