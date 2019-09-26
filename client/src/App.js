@@ -14,14 +14,14 @@ class App extends Component {
       web3: null
     };
   }
-  
+    
   componentWillMount() {
     getWeb3
       .then(results => {
         this.setState({
           web3: results.web3
         })
-
+        console.log('get web3')
         this.instantiateContract()
       })
       .catch(() => {
@@ -32,6 +32,7 @@ class App extends Component {
   instantiateContract() {
     const contract = require('truffle-contract');
     const TieDraw = contract(Dice);
+    console.dir(this.state.web3.currentProvider)
     TieDraw.setProvider(this.state.web3.currentProvider);
   
     this.state.web3.eth.getAccounts((error, accounts) => {
@@ -42,8 +43,8 @@ class App extends Component {
         TieDraw.deployed().then(instance => {
           this.setState({
             diceInstance: instance,
-            myAccount: "0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b"
-            //myAccount: accounts[0]
+            //myAccount: "0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b"
+            myAccount: accounts[0]
             
           });
             this.balance();    
