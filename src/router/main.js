@@ -14,4 +14,12 @@ module.exports = function (app, fs) {
     app.get('/userInfo', function (req,res) {
         res.render()
     });
+
+    app.get('/board', function (req,res) {
+        res.render()
+    });
+
+    app.get('/game', function (req,res) {
+        res.render()
+    });
 }
