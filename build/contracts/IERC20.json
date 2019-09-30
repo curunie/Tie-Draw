@@ -145,9 +145,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\r\n\r\ninterface IERC20 {\r\n    function balanceOf(address account) external view returns (uint256);\r\n    function transfer(address recipient, uint256 amount) external returns (bool);\r\n    function allowance(address owner, address spender) external view returns (uint256);\r\n    function approve(address spender, uint256 amount) external returns (bool);\r\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\r\n    event Transfered(address indexed from, address indexed to, uint256 value);\r\n}",
-  "sourcePath": "C:/Users/s310o/Tie-Draw/contracts/IERC20.sol",
+  "sourcePath": "C:/Users/class3/Desktop/Tie-Draw/contracts/IERC20.sol",
   "ast": {
-    "absolutePath": "/C/Users/s310o/Tie-Draw/contracts/IERC20.sol",
+    "absolutePath": "/C/Users/class3/Desktop/Tie-Draw/contracts/IERC20.sol",
     "exportedSymbols": {
       "IERC20": [
         1445
@@ -828,7 +828,7 @@
     "src": "0:557:3"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/s310o/Tie-Draw/contracts/IERC20.sol",
+    "absolutePath": "/C/Users/class3/Desktop/Tie-Draw/contracts/IERC20.sol",
     "exportedSymbols": {
       "IERC20": [
         1445
@@ -1513,8 +1513,8 @@
     "version": "0.5.1+commit.c8a2cb62.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.16",
-  "updatedAt": "2019-09-29T11:50:27.950Z",
+  "schemaVersion": "3.0.12",
+  "updatedAt": "2019-09-30T02:01:09.373Z",
   "devdoc": {
     "methods": {}
   },

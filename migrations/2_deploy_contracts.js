@@ -1,6 +1,5 @@
-var Blackjack = artifacts.require("./BlackJack.json");
-var Chip = artifacts.require("./Chip.json")
+var Chip = artifacts.require("./Chip.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Migrations);
+  deployer.deploy(Chip);
 };

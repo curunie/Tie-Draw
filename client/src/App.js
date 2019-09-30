@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import getWeb3 from "./utils/getWeb3";
-import Dice from "./DiceToken.json";
+import Chip from "./Chip.json";
 import "./App.css";
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
 
   instantiateContract() {
     const contract = require('truffle-contract');
-    const TieDraw = contract(Dice);
+    const TieDraw = contract(Chip);
     console.dir(this.state.web3.currentProvider)
     TieDraw.setProvider(this.state.web3.currentProvider);
   
@@ -43,7 +43,6 @@ class App extends Component {
         TieDraw.deployed().then(instance => {
           this.setState({
             diceInstance: instance,
-            //myAccount: "0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b"
             myAccount: accounts[0]
             
           });
@@ -56,7 +55,7 @@ class App extends Component {
 
   //balanceOf function
   balance=()=> {
-    this.state.diceInstance.balanceOf(
+    this.state.diceInstance.BalanceOf(
       this.state.myAccount
     ).then(result=> { 
       //from: this.state.myAccount,
