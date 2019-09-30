@@ -3,6 +3,7 @@ contract RockPaperScissors {
     uint256 public RPSResult = 5;
     uint256 public hand;
 
+    // 값이 0이면 비기거나 진것 1이면 이긴 것
     function RPStart(uint RPS) public {
         require(0 < RPS && RPS < 4);
         uint256 randNum = uint256(keccak256(abi.encodePacked(now, msg.sender))) % 3;

@@ -1,0 +1,17 @@
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'Chip'
+   ----------------
+   > transaction hash:    0xd75ff9a1ca724d361c8fa3afee4ed4c07776d51cafa1daf363ced43445f49e74
+   > Blocks: 1            Seconds: 21
+   > contract address:    0x6bFF99C3761669c2f1ce78466C21DcB7fb8DE6E0
+   > block number:        5178064
+   > block timestamp:     1569809930
+   > account:             0xFF0ca6eC70cA25432Cc8c44dEb4286B583Dad62b
+   > balance:             19.282068263914
+   > gas used:            5550661
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.11101322 ETH

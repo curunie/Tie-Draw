@@ -5,6 +5,8 @@ contract Dice {
     uint public DiceComNum1;
     uint public DiceMyNum2;
 
+    // 숫자가 같으면 이기는데(DiceResult = 1) 숫자가 다르면 짐 (DiceResult = 0) 
+    // 만약 6으로 같으면 더 큰 이득 (DiceResult = 2)
     function DiceGameStart(uint number) public {
         uint i = 0;
         uint randNum = uint(keccak256(abi.encodePacked(now, msg.sender, i))) % 6;
