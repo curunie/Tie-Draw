@@ -6,9 +6,7 @@ module.exports = function (app, fs) {
     });
 
     app.get('/login', function (req,res) {
-        res.render('login', {
-            reqSignUp: req.query.signupQuery
-        })
+        res.render('login')
     });
 
     app.get('/userInfo', function (req,res) {
@@ -19,7 +17,7 @@ module.exports = function (app, fs) {
         res.render()
     });
 
-    app.get('/game', function (req,res) {
+    app.get('/game/:gameId', function (req,res) {
         res.render()
     });
 }
