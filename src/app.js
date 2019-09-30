@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
+const ejs = require('ejs');
 const bodyParser = require('body-parser');
+
 const server = require('http').createServer(app);
 const port = process.env.PORT || 3000;
+
 const router = require('./router/main')(app);
 
 
