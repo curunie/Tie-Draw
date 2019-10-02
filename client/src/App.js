@@ -15,7 +15,7 @@ class App extends Component {
     };
   }
     
-  componentWillMount() {
+  componentDidMount() {
     getWeb3
       .then(results => {
         this.setState({
