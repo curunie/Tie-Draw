@@ -3,7 +3,58 @@ import getWeb3 from "./utils/getWeb3";
 import Chip from "./Chip.json";
 import "./App.css";
 
+class login extends Component {
+  render() {
+    return(
+      <div className="login">
+          <h4>Login</h4>
+          <form>
+            <label>
+            ID:
+            <input type="text" name="login-id" />
+            PW:
+            <input type="password" name="login-password" />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+    )
+  }
+}
+
+class join extends Component {
+  render() {
+    return(
+      <div className="join">
+        <h4>Join</h4>
+        <form>
+          <label>
+            ID:
+            <input type="text" name="join-id" />
+            PW:
+            <input type="password" name="join-pw" />
+            Your Ethereum Address
+            <input type="text" name="join-address" />
+          </label>
+          <input type="submit" value="Sumbit" />
+        </form>
+      </div>
+    )
+  }
+}
+
 class App extends Component {
+
+  if () {
+    <login></login>
+    <join></join>
+  } else {
+    render(
+      <h4>Hello, World!</h4>
+    )
+  }
+  
+  /*
   constructor(props)  {
     super(props);
 
@@ -87,5 +138,6 @@ class App extends Component {
             
     );
   }
+  */
 }  
 export default App;
