@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import getWeb3 from "./utils/getWeb3";
 import Chip from "./Chip.json";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
 
-class login extends Component {
+class Login extends Component {
   render() {
     return(
       <div className="login">
@@ -22,7 +26,7 @@ class login extends Component {
   }
 }
 
-class join extends Component {
+class Join extends Component {
   render() {
     return(
       <div className="join">
@@ -52,9 +56,27 @@ class TieDraw extends Component {
         <div>
           블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
         </div>
-        your accout: {this.state.myToken}
+        your accout: {this.balance}
       </div>
             
+    );
+  }
+}
+
+class Gameform extends Component {
+  render() {
+    return (
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the bulk of
+            the card's content.
+    </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
@@ -133,14 +155,25 @@ class App extends Component {
   }
   
   render() {
-    return (
-      <scripts>
-        if (account[0] === undefined)
-
-      </scripts>
-      
-      
-    );
+    if (this.state.myAccount === undefined) {
+      return (
+        <div>
+          <Login></Login>
+          <Join></Join>
+        </div>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <div>
+            <TieDraw></TieDraw>
+          </div>
+          <div>
+            <Gameform></Gameform>
+          </div>
+        </React.Fragment>
+      );
+    }
   }
 }  
 export default App;
