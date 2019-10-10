@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import getWeb3 from "./utils/getWeb3";
+import getWeb3 from "../utils/getWeb3";
 import Chip from "./Chip.json";
-import "./App.css";
+import "../css/App.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import "bootstrap/dist/css/bootstrap.min.css"
-import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import blackjack from "../jpg/blackjack.jpg";
+import dice from "../jpg/dice.png";
+import odd from "../jpg/odd.jpg";
+import rcp from "../jpg/rcp.jpg";
 
 class Login extends Component {
   render() {
@@ -63,18 +67,69 @@ class TieDraw extends Component {
   }
 }
 
-class Gameform extends Component {
+class Gameform1 extends Component {
   render() {
     return (
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img id="img_blackjack" variant="top" src={blackjack}/>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-    </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title id="title">Blackjack(블랙잭)</Card.Title>
+          <Card.Text id="content">
+            기본적으로 우리가 알고있는 블랙잭 게임입니다. 룰은 동일합니다.
+          </Card.Text>
+          <Button variant="primary">Let's Start!</Button>
+        </Card.Body>
+      </Card>
+    );
+  }
+}
+
+class Gameform2 extends Component {
+  render() {
+    return (
+      <Card style={{ width: '18rem' }}>
+        <Card.Img id="img_dice" variant="top" src={dice}/>
+        <Card.Body>
+          <Card.Title id="title">Dice Game(같은 수 맞추기)</Card.Title>
+          <Card.Text id="content">
+            컴퓨터가 던지는 주사위와 같은 주사위를 맞추는 게임입니다.
+            만약 맞춘 수가 6이라면 보상은 2배!
+          </Card.Text>
+          <Button variant="primary">Let's Start!</Button>
+        </Card.Body>
+      </Card>
+    );
+  }
+}
+
+class Gameform3 extends Component {
+  render() {
+    return (
+      <Card style={{ width: '18rem' }}>
+        <Card.Img id="img_odd" variant="top" src={odd}/>
+        <Card.Body>
+          <Card.Title id="title">Oddeven(홀짝게임)</Card.Title>
+          <Card.Text id="content">
+            간단하고 쉬운 여러분이 잘 아시는 홀짝게임 입니다.
+          </Card.Text>
+          <Button variant="primary">Let's Start!</Button>
+        </Card.Body>
+      </Card>
+    );
+  }
+}
+
+class Gameform4 extends Component {
+  render() {
+    return (
+      <Card style={{ width: '18rem' }}>
+        <Card.Img id="img_rcp" variant="top" src={rcp}/>
+        <Card.Body>
+          <Card.Title id="title">RockScissorsPaper(가위바위보)</Card.Title>
+          <Card.Text id="content">
+            가위바위보 게임 입니다. 가위는 '1' 바위는 '2' 보는 '3' 이란 수를 입력하세요.
+          </Card.Text>
+          <Button variant="primary">Let's Start!</Button>
         </Card.Body>
       </Card>
     );
@@ -169,7 +224,17 @@ class App extends Component {
             <TieDraw></TieDraw>
           </div>
           <div>
-            <Gameform></Gameform>
+            <table>
+              <tr>
+                <th><Gameform1></Gameform1></th>
+                <th><Gameform2></Gameform2></th>
+              </tr>
+              <tr>
+                <th><Gameform3></Gameform3></th>
+                <th><Gameform4></Gameform4></th>
+              </tr>  
+           
+            </table>  
           </div>
         </React.Fragment>
       );

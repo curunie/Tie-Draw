@@ -30,3 +30,26 @@
     transform: rotate(360deg);
   }
 }
+
+#img_blackjack {
+  width: 286px;
+  height: 200px;
+}
+
+#img_dice {
+  width: 176px;
+  height: 176px;
+  margin: auto;
+}
+
+#img_odd {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+#img_rcp {
+  height: 152px;
+  width: 152px;
+  margin: auto;
+}
