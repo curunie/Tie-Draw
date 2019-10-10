@@ -43,6 +43,22 @@ class join extends Component {
   }
 }
 
+class TieDraw extends Component {  
+  render() {
+    return (
+      
+      <div>
+        <h1>TieDraw Test</h1>
+        <div>
+          블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
+        </div>
+        your accout: {this.state.myToken}
+      </div>
+            
+    );
+  }
+}
+
 class App extends Component {
 
   if () {
@@ -54,7 +70,6 @@ class App extends Component {
     )
   }
   
-  /*
   constructor(props)  {
     super(props);
 
@@ -124,20 +139,5 @@ class App extends Component {
     })
   }
   
-   
-  render() {
-    return (
-      
-      <div>
-        <h1>TieDraw Test</h1>
-        <div>
-          블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
-        </div>
-        your accout: {this.state.myToken}
-      </div>
-            
-    );
-  }
-  */
 }  
 export default App;
