@@ -3,6 +3,62 @@ import getWeb3 from "./utils/getWeb3";
 import Chip from "./Chip.json";
 import "./App.css";
 
+class login extends Component {
+  render() {
+    return(
+      <div className="login">
+          <h4>Login</h4>
+          <form>
+            <label>
+            ID:
+            <input type="text" name="login-id" />
+            PW:
+            <input type="password" name="login-password" />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+    )
+  }
+}
+
+class join extends Component {
+  render() {
+    return(
+      <div className="join">
+        <h4>Join</h4>
+        <form>
+          <label>
+            ID:
+            <input type="text" name="join-id" />
+            PW:
+            <input type="password" name="join-pw" />
+            Your Ethereum Address
+            <input type="text" name="join-address" />
+          </label>
+          <input type="submit" value="Sumbit" />
+        </form>
+      </div>
+    )
+  }
+}
+
+class TieDraw extends Component {  
+  render() {
+    return (
+
+      <div>
+        <h1>TieDraw Test</h1>
+        <div>
+          블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
+        </div>
+        your accout: {this.state.myToken}
+      </div>
+
+    );
+  }
+}
+
 class App extends Component {
   constructor(props)  {
     super(props);
@@ -67,25 +123,32 @@ class App extends Component {
 
   //getTokens function
   getToken=()=> {
-    this.state.diceInstance.getTokens()
-    .then(result => {
-      this.setState()
+     
+    this.state.diceInstance.GetTokens({
+      from: "0x6bFF99C3761669c2f1ce78466C21DcB7fb8DE6E0",
+      value: 10,
+      gas: 700000
     })
   }
-  
-   
+     
   render() {
     return (
-      
+           
       <div>
-        <h1>TieDraw Test</h1>
+        <h1>Game Centre</h1>
         <div>
-          블록에서 데이터 가져오기<button onClick={this.balance}>Click</button>
+          잔액조회<button onClick={this.balance}>Click</button>
         </div>
-        your accout: {this.state.myToken}
+        <div>
+          your balance: {this.state.myToken}
+        </div>  
+        <div>
+          토큰받기<button onClick={this.getToken}>Click</button>
+        </div>  
       </div>
             
     );
   }
-}  
+}
+
 export default App;
