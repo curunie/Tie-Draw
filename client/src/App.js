@@ -46,7 +46,7 @@ class join extends Component {
 class TieDraw extends Component {  
   render() {
     return (
-
+      
       <div>
         <h1>TieDraw Test</h1>
         <div>
@@ -54,12 +54,22 @@ class TieDraw extends Component {
         </div>
         your accout: {this.state.myToken}
       </div>
-
+            
     );
   }
 }
 
 class App extends Component {
+
+  if () {
+    <login></login>
+    <join></join>
+  } else {
+    render(
+      <h4>Hello, World!</h4>
+    )
+  }
+  
   constructor(props)  {
     super(props);
 
@@ -130,25 +140,6 @@ class App extends Component {
       gas: 700000
     })
   }
-     
-  render() {
-    return (
-           
-      <div>
-        <h1>Game Centre</h1>
-        <div>
-          잔액조회<button onClick={this.balance}>Click</button>
-        </div>
-        <div>
-          your balance: {this.state.myToken}
-        </div>  
-        <div>
-          토큰받기<button onClick={this.getToken}>Click</button>
-        </div>  
-      </div>
-            
-    );
-  }
-}
-
+  
+}  
 export default App;
