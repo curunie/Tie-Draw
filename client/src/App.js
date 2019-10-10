@@ -60,16 +60,7 @@ class TieDraw extends Component {
 }
 
 class App extends Component {
-
-  if () {
-    <login></login>
-    <join></join>
-  } else {
-    render(
-      <h4>Hello, World!</h4>
-    )
-  }
-  
+    
   constructor(props)  {
     super(props);
 
@@ -141,5 +132,15 @@ class App extends Component {
     })
   }
   
+  render() {
+    return (
+      <scripts>
+        if (account[0] === undefined)
+
+      </scripts>
+      
+      
+    );
+  }
 }  
 export default App;
