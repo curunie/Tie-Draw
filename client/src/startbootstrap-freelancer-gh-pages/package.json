@@ -29,8 +29,11 @@
         "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "5.10.2",
+        "@fortawesome/fontawesome-free": "^5.10.2",
         "bootstrap": "4.3.1",
+        "chart-library": "^1.1.1",
+        "define": "^1.0.1",
+        "jqeury": "0.0.1-security",
         "jquery": "3.4.1",
         "jquery.easing": "^1.4.1",
         "magnific-popup": "^1.1.0"

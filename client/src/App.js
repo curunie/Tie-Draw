@@ -1,4 +1,12 @@
+/*global jQuery, padding*/
 import React, { Component } from "react";
+import "@fortawesome/fontawesome-free";
+import "common-js";
+import jquery from "jquery";
+window.$ = window.jQuery = jquery;
+window.$ = window.jQuery = "./startbootstrap-freelancer-gh-pages/node_modules/jquery/dist/jquery.js"
+import 'jquery/src/jquery';
+import "jquery.easing";
 import getWeb3 from "./utils/getWeb3";
 import Chip from "./Chip.json";
 import "./App.css";
@@ -11,6 +19,12 @@ import odd from "./startbootstrap-freelancer-gh-pages/img/portfolio/countdown.pn
 import rcp from "./startbootstrap-freelancer-gh-pages/img/portfolio/paper.png";
 import fonts from "./startbootstrap-freelancer-gh-pages/vendor/fontawesome-free/css/all.min.css";
 import theme_css from "./startbootstrap-freelancer-gh-pages/css/freelancer.min.css";
+import corejs1 from "./startbootstrap-freelancer-gh-pages/vendor/jquery/jquery.min.js";
+import corejs2 from "./startbootstrap-freelancer-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js";
+import plugin from "./startbootstrap-freelancer-gh-pages/vendor/jquery-easing/jquery.easing.min.js";
+import contract_js1 from "./startbootstrap-freelancer-gh-pages/js/jqBootstrapValidation.js";
+import contract_js2 from "./startbootstrap-freelancer-gh-pages/js/contact_me.js";
+import custom_js from "./startbootstrap-freelancer-gh-pages/js/freelancer.min.js";
 
 class Login extends Component {
   render() {
@@ -85,6 +99,50 @@ class Gameform1 extends Component {
   }
 }
 
+class GameModal1 extends Component {
+  render() {
+    return (
+      <div className="portfolio-modal modal fade" id="portfolioModal1" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div className="modal-dialog modal-xl" role="document">
+          <div className="modal-content">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                <i className="fas fa-times" />
+              </span>
+            </button>
+            <div className="modal-body text-center">
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-8">
+                    {/* Portfolio Modal - Title */}
+                    <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Blackjack</h2>
+                    {/* Icon Divider */}
+                    <div className="divider-custom">
+                      <div className="divider-custom-line" />
+                      <div className="divider-custom-icon">
+                        <i className="fas fa-star" />
+                      </div>
+                      <div className="divider-custom-line" />
+                    </div>
+                    {/* Portfolio Modal - Image */}
+                    <img className="img-fluid rounded mb-5" src={blackjack} alt="" />
+                    {/* Portfolio Modal - Text */}
+                    <p className="mb-5">블랙잭은 우리에게 익숙한 블랙잭 게임입니다 룰은 같습니다.</p>
+                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                      <i className="fas fa-times fa-fw" />
+                      Close Window
+                </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Gameform2 extends Component {
   render() {
     return (
@@ -102,11 +160,55 @@ class Gameform2 extends Component {
   }
 }
 
+class GameModal2 extends Component {
+  render() {
+    return (
+      <div className="portfolio-modal modal fade" id="portfolioModal2" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+        <div className="modal-dialog modal-xl" role="document">
+          <div className="modal-content">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                <i className="fas fa-times" />
+              </span>
+            </button>
+            <div className="modal-body text-center">
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-8">
+                    {/* Portfolio Modal - Title */}
+                    <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Dice</h2>
+                    {/* Icon Divider */}
+                    <div className="divider-custom">
+                      <div className="divider-custom-line" />
+                      <div className="divider-custom-icon">
+                        <i className="fas fa-star" />
+                      </div>
+                      <div className="divider-custom-line" />
+                    </div>
+                    {/* Portfolio Modal - Image */}
+                    <img className="img-fluid rounded mb-5" src={dice} alt="" />
+                    {/* Portfolio Modal - Text */}
+                    <p className="mb-5">같은 수를 맞추는 게임 입니다. 만약 맞춘 수가 6일 경우에는 보상이 2배!</p>
+                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                      <i className="fas fa-times fa-fw" />
+                      Close Window
+                </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Gameform3 extends Component {
   render() {
     return (
       <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
           <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
@@ -119,17 +221,105 @@ class Gameform3 extends Component {
   }
 }
 
+class GameModal3 extends Component {
+  render() {
+    return (
+      <div className="portfolio-modal modal fade" id="portfolioModal3" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div className="modal-dialog modal-xl" role="document">
+          <div className="modal-content">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                <i className="fas fa-times" />
+              </span>
+            </button>
+            <div className="modal-body text-center">
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-8">
+                    {/* Portfolio Modal - Title */}
+                    <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Odd or Even</h2>
+                    {/* Icon Divider */}
+                    <div className="divider-custom">
+                      <div className="divider-custom-line" />
+                      <div className="divider-custom-icon">
+                        <i className="fas fa-star" />
+                      </div>
+                      <div className="divider-custom-line" />
+                    </div>
+                    {/* Portfolio Modal - Image */}
+                    <img className="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="" />
+                    {/* Portfolio Modal - Text */}
+                    <p className="mb-5">우리에게 익숙한 홀짝 게임입니다. 컴퓨터가 던지는 주사위가 홀이냐 짝이냐를 맞추는 게임입니다.</p>
+                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                      <i className="fas fa-times fa-fw" />
+                      Close Window
+                </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Gameform4 extends Component {
   render() {
     return (
       <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
           <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
             </div>
           </div>
           <img className="img-fluid" src={rcp} alt="" />
+        </div>
+      </div>
+    );
+  }
+}
+
+class GameModal4 extends Component {
+  render() {
+    return (
+      <div className="portfolio-modal modal fade" id="portfolioModal4" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+        <div className="modal-dialog modal-xl" role="document">
+          <div className="modal-content">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                <i className="fas fa-times" />
+              </span>
+            </button>
+            <div className="modal-body text-center">
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-lg-8">
+                    {/* Portfolio Modal - Title */}
+                    <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Rock Scissors Paper</h2>
+                    {/* Icon Divider */}
+                    <div className="divider-custom">
+                      <div className="divider-custom-line" />
+                      <div className="divider-custom-icon">
+                        <i className="fas fa-star" />
+                      </div>
+                      <div className="divider-custom-line" />
+                    </div>
+                    {/* Portfolio Modal - Image */}
+                    <img className="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="" />
+                    {/* Portfolio Modal - Text */}
+                    <p className="mb-5">가위바위보 게임입니다. 가위는 '1'로 바위는 '2'로 보는 '3'으로 표기합니다.</p>
+                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                      <i className="fas fa-times fa-fw" />
+                      Close Window
+                </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -439,247 +629,28 @@ class App extends Component {
             {/* Portfolio Modals */}
             {/* Portfolio explain section */}
             {/* Portfolio Modal 1 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal1" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Blackjack</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src={blackjack} alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GameModal1></GameModal1>
             {/* Portfolio Modal 2 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal2" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GameModal2></GameModal2>
             {/* Portfolio Modal 3 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal3" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GameModal3></GameModal3>
             {/* Portfolio Modal 4 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal4" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Portfolio Modal 5 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal5" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Portfolio Modal 6 */}
-            <div className="portfolio-modal modal fade" id="portfolioModal6" tabIndex={-1} role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-              <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                      <i className="fas fa-times" />
-                    </span>
-                  </button>
-                  <div className="modal-body text-center">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-lg-8">
-                          {/* Portfolio Modal - Title */}
-                          <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                          {/* Icon Divider */}
-                          <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                              <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                          </div>
-                          {/* Portfolio Modal - Image */}
-                          <img className="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="" />
-                          {/* Portfolio Modal - Text */}
-                          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                          <button className="btn btn-primary" href="#" data-dismiss="modal">
-                            <i className="fas fa-times fa-fw" />
-                            Close Window
-                </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GameModal4></GameModal4>
+                                   
             {/* Bootstrap core JavaScript */}
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src={corejs1}></script>
+            <script src={corejs2}></script>
             
             {/* Plugin JavaScript */}
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src={plugin}></script>
 
             {/* Contact Form JavaScript */}
-            <script src="js/jqBootstrapValidation.js"></script>
-            <script src="js/contact_me.js"></script>
+            <script src={contract_js1}></script>
+            <script src={contract_js2}></script>
 
             {/* Custom scripts for this template */}
-            <script src="js/freelancer.min.js"></script>
-
+            <script src={custom_js}></script>
+                      
           </div>
 
         </React.Fragment>
