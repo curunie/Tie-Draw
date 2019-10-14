@@ -2,9 +2,9 @@
 import React, { Component } from "react";
 import "@fortawesome/fontawesome-free";
 import "common-js";
-import jquery from "jquery";
-window.$ = window.jQuery = jquery;
-window.$ = window.jQuery = "./startbootstrap-freelancer-gh-pages/node_modules/jquery/dist/jquery.js"
+//import jquery from "jquery";
+//window.$ = window.jQuery = jquery;
+//window.$ = window.jQuery = "./startbootstrap-freelancer-gh-pages/node_modules/jquery/dist/jquery.js"
 import 'jquery/src/jquery';
 import "jquery.easing";
 import getWeb3 from "./utils/getWeb3";
@@ -12,19 +12,13 @@ import Chip from "./Chip.json";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import casino from "./startbootstrap-freelancer-gh-pages/img/portfolio/jackpot.png"
+import casino from "./startbootstrap-freelancer-gh-pages/img/portfolio/lottery.png"
 import blackjack from "./startbootstrap-freelancer-gh-pages/img/portfolio/black-jack.png";
 import dice from "./startbootstrap-freelancer-gh-pages/img/portfolio/dice.png";
 import odd from "./startbootstrap-freelancer-gh-pages/img/portfolio/countdown.png";
-import rcp from "./startbootstrap-freelancer-gh-pages/img/portfolio/paper.png";
+import rcp from "./startbootstrap-freelancer-gh-pages/img/portfolio/rcp4.jpg";
 import fonts from "./startbootstrap-freelancer-gh-pages/vendor/fontawesome-free/css/all.min.css";
-import theme_css from "./startbootstrap-freelancer-gh-pages/css/freelancer.min.css";
-import corejs1 from "./startbootstrap-freelancer-gh-pages/vendor/jquery/jquery.min.js";
-import corejs2 from "./startbootstrap-freelancer-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js";
-import plugin from "./startbootstrap-freelancer-gh-pages/vendor/jquery-easing/jquery.easing.min.js";
-import contract_js1 from "./startbootstrap-freelancer-gh-pages/js/jqBootstrapValidation.js";
-import contract_js2 from "./startbootstrap-freelancer-gh-pages/js/contact_me.js";
-import custom_js from "./startbootstrap-freelancer-gh-pages/js/freelancer.min.js";
+import theme_css from "./startbootstrap-freelancer-gh-pages/css/freelancer.css";
 
 class Login extends Component {
   render() {
@@ -85,15 +79,15 @@ class TieDraw extends Component {
 class Gameform1 extends Component {
   render() {
     return (
-      <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-          <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-lg ml-auto md-auto">
+        {/* <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+          <div className="portfolio-item-caption d-flex align-items-center justify-content-center">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
             </div>
           </div>
-          <img className="img-fluid" src={blackjack} alt="" />
-        </div>
+        </div> */}
+      <img className="img-fluid" src={blackjack} alt="" />
       </div>
     );
   }
@@ -128,7 +122,7 @@ class GameModal1 extends Component {
                     <img className="img-fluid rounded mb-5" src={blackjack} alt="" />
                     {/* Portfolio Modal - Text */}
                     <p className="mb-5">블랙잭은 우리에게 익숙한 블랙잭 게임입니다 룰은 같습니다.</p>
-                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                    <button className="btn btn-info" href="#" data-dismiss="modal">
                       <i className="fas fa-times fa-fw" />
                       Close Window
                 </button>
@@ -146,15 +140,16 @@ class GameModal1 extends Component {
 class Gameform2 extends Component {
   render() {
     return (
-      <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-          <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-lg mr-auto">
+        {/* <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+          <div className="portfolio-item-caption d-flex align-items-center justify-content-center">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
             </div>
           </div>
-          <img className="img-fluid" src={dice} alt="" />
-        </div>
+          
+        </div> */}
+        <img className="img-fluid" src={dice} alt="" />
       </div>
     );
   }
@@ -189,7 +184,7 @@ class GameModal2 extends Component {
                     <img className="img-fluid rounded mb-5" src={dice} alt="" />
                     {/* Portfolio Modal - Text */}
                     <p className="mb-5">같은 수를 맞추는 게임 입니다. 만약 맞춘 수가 6일 경우에는 보상이 2배!</p>
-                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                    <button className="btn btn-info" href="#" data-dismiss="modal">
                       <i className="fas fa-times fa-fw" />
                       Close Window
                 </button>
@@ -207,15 +202,16 @@ class GameModal2 extends Component {
 class Gameform3 extends Component {
   render() {
     return (
-      <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-          <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-lg ml-auto">
+        {/* <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+          <div className="portfolio-item-caption d-flex align-items-center justify-content-center">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
             </div>
           </div>
-          <img className="img-fluid" src={odd} alt="" />
-        </div>
+          
+        </div> */}
+        <img className="img-fluid" src={odd} alt="" />
       </div>
     );
   }
@@ -250,7 +246,7 @@ class GameModal3 extends Component {
                     <img className="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="" />
                     {/* Portfolio Modal - Text */}
                     <p className="mb-5">우리에게 익숙한 홀짝 게임입니다. 컴퓨터가 던지는 주사위가 홀이냐 짝이냐를 맞추는 게임입니다.</p>
-                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                    <button className="btn btn-info" href="#" data-dismiss="modal">
                       <i className="fas fa-times fa-fw" />
                       Close Window
                 </button>
@@ -268,15 +264,16 @@ class GameModal3 extends Component {
 class Gameform4 extends Component {
   render() {
     return (
-      <div className="col-md-6 col-lg-4">
-        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-          <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-lg mr-auto">
+        {/* <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+          <div className="portfolio-item-caption d-flex align-items-center justify-content-center">
             <div className="portfolio-item-caption-content text-center text-white">
               <i className="fas fa-plus fa-3x" />
             </div>
           </div>
-          <img className="img-fluid" src={rcp} alt="" />
-        </div>
+          
+        </div> */}
+        <img className="img-fluid" src={rcp} alt="" />
       </div>
     );
   }
@@ -311,7 +308,7 @@ class GameModal4 extends Component {
                     <img className="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="" />
                     {/* Portfolio Modal - Text */}
                     <p className="mb-5">가위바위보 게임입니다. 가위는 '1'로 바위는 '2'로 보는 '3'으로 표기합니다.</p>
-                    <button className="btn btn-primary" href="#" data-dismiss="modal">
+                    <button className="btn btn-info" href="#" data-dismiss="modal">
                       <i className="fas fa-times fa-fw" />
                       Close Window
                 </button>
@@ -420,18 +417,22 @@ class App extends Component {
             <link src={fonts}/>
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
             <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+            <link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet"/>
             {/* Theme CSS */}
             <link src={theme_css} />
             {/* Navigation */}
             <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
               <div className="container">
-                <a className="navbar-brand js-scroll-trigger" href="#page-top">Game Centre</a>
-                <button className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <a className="navbar-brand js-scroll-trigger" href="mainNav">Game Centre</a>
+                <button class="nav-item dropdown" className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-info text-white rounded" type="button" data-toggle="dropdown" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   Menu
         <i className="fas fa-bars" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
-                  <ul className="navbar-nav ml-auto">
+                  <ul  className="navbar-nav ml-auto" >
+                    <li className="nav-item mx-0 mx-lg-1">
+                      <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">LOGIN</a>
+                    </li>
                     <li className="nav-item mx-0 mx-lg-1">
                       <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">GameList</a>
                     </li>
@@ -446,7 +447,7 @@ class App extends Component {
               </div>
             </nav>
             {/* Masthead */}
-            <header className="masthead bg-primary text-white text-center">
+            <header className="masthead bg-info text-white text-center">
               <div className="container d-flex align-items-center flex-column">
                 {/* Masthead Avatar Image */}
                 <img className="masthead-avatar mb-5" src={casino} alt="" />
@@ -478,21 +479,16 @@ class App extends Component {
                   <div className="divider-custom-line" />
                 </div>
                 {/* Portfolio Grid Items */}
-                <div className="row">
-                  {/* Portfolio Item 1 */}
-                    <Gameform1></Gameform1>
-                  {/* Portfolio Item 2 */}
-                    <Gameform2></Gameform2>
-                  {/* Portfolio Item 3 */}
-                    <Gameform3></Gameform3>
-                  {/* Portfolio Item 4 */}
-                    <Gameform4></Gameform4>
+                <div className="row" >
+                  {/* Portfolio Item 1 ~ 4 */}
+                    <Gameform1></Gameform1> <Gameform2></Gameform2> <Gameform3></Gameform3> <Gameform4></Gameform4>
+                                    
                 </div>
                 {/* /.row */}
               </div>
             </section>
             {/* About Section */}
-            <section className="page-section bg-primary text-white mb-0" id="about">
+            <section className="page-section bg-info text-white mb-0" id="about">
               <div className="container">
                 {/* About Section Heading */}
                 <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>
@@ -506,18 +502,19 @@ class App extends Component {
                 </div>
                 {/* About Section Content */}
                 <div className="row">
-                  <div className="col-lg-4 ml-auto">
-                    <p className="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
-                  </div>
-                  <div className="col-lg-4 mr-auto">
-                    <p className="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+                  <div className="col-lg-9 ml-auto mr-auto">
+                    <p className="lead">
+                      이 페이지는 정부에서 주관하는 '블록체인 엔지니어 양성과정'의 교육생 김인수, 김희윤, 안형근이 만들었습니다. 
+                      게임들은 이더리움 기반의 스마트 컨트랙트로 구성되어 있습니다. 게임은 총 4가지로 각각의 아이콘을 누르면 설명과 함께 간단한 게임을
+                      즐기실 수 있습니다. 작업내용은 Github에 모두 올려져 있습니다. 감사합니다.
+                    </p>
                   </div>
                 </div>
                 {/* About Section Button */}
                 <div className="text-center mt-4">
-                  <a className="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
-                    <i className="fas fa-download mr-2" />
-                    Free Download!
+                  <a className="btn btn-xl btn-outline-light" href="https://github.com/lnhog403/Tie-Draw">
+                    <i class="fab fa-github"/>
+                    &nbsp; Join Github
         </a>
                 </div>
               </div>
@@ -539,7 +536,7 @@ class App extends Component {
                 <div className="row">
                   <div className="col-lg-8 mx-auto">
                     {/* To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. */}
-                    <form name="sentMessage" id="contactForm" noValidate="novalidate">
+                    <form name="sentMessage" id="contactForm" noValidate="novalidate" method="post" action="mailto:dnflwlq3231@naver.com">
                       <div className="control-group">
                         <div className="form-group floating-label-form-group controls mb-0 pb-2">
                           <label>Name</label>
@@ -564,14 +561,14 @@ class App extends Component {
                       <div className="control-group">
                         <div className="form-group floating-label-form-group controls mb-0 pb-2">
                           <label>Message</label>
-                          <textarea className="form-control" id="message" rows={5} placeholder="Message" required="required" data-validation-required-message="Please enter a message." defaultValue={""} />
+                          <textarea className="form-control" id="message" rows={3} placeholder="Message" required="required" data-validation-required-message="Please enter a message." defaultValue={""} />
                           <p className="help-block text-danger" />
                         </div>
                       </div>
                       <br />
                       <div id="success" />
                       <div className="form-group">
-                        <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+                        <button type="submit" className="btn btn-info btn-xl" id="sendMessageButton" href="mailto:dnflwlq3231@naver.com">Send</button>
                       </div>
                     </form>
                   </div>
@@ -585,30 +582,30 @@ class App extends Component {
                   {/* Footer Location */}
                   <div className="col-lg-4 mb-5 mb-lg-0">
                     <h4 className="text-uppercase mb-4">Location</h4>
-                    <p className="lead mb-0">2215 John Daniel Drive
-            <br />Clark, MO 65243</p>
+                    <p className="lead mb-0">서울 마포구 양화로 127
+            <br />서교동 353-4 (우)04032</p>
                   </div>
                   {/* Footer Social Icons */}
                   <div className="col-lg-4 mb-5 mb-lg-0">
                     <h4 className="text-uppercase mb-4">Around the Web</h4>
-                    <a className="btn btn-outline-light btn-social mx-1" href="#">
+                    <a className="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/">
                       <i className="fab fa-fw fa-facebook-f" />
                     </a>
-                    <a className="btn btn-outline-light btn-social mx-1" href="#">
+                    <a className="btn btn-outline-light btn-social mx-1" href="https://twitter.com/">
                       <i className="fab fa-fw fa-twitter" />
                     </a>
-                    <a className="btn btn-outline-light btn-social mx-1" href="#">
-                      <i className="fab fa-fw fa-linkedin-in" />
+                    <a className="btn btn-outline-light btn-social mx-1" href="https://www.google.co.kr/">
+                      <i className="fab fa-fw fa-google" />
                     </a>
-                    <a className="btn btn-outline-light btn-social mx-1" href="#">
-                      <i className="fab fa-fw fa-dribbble" />
+                    <a className="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/?hl=ko">
+                      <i className="fab fa-fw fa-instagram" />
                     </a>
                   </div>
                   {/* Footer About Text */}
                   <div className="col-lg-4">
                     <h4 className="text-uppercase mb-4">About Game Centre</h4>
-                    <p className="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <p className="lead mb-0">Game Centre is a free to use, Ethereum based game with smart contracts created by 
+            <a href="https://github.com/lnhog403/Tie-Draw"> HIH</a>.</p>
                   </div>
                 </div>
               </div>
@@ -636,20 +633,22 @@ class App extends Component {
             <GameModal3></GameModal3>
             {/* Portfolio Modal 4 */}
             <GameModal4></GameModal4>
-                                   
+                        
             {/* Bootstrap core JavaScript */}
-            <script src={corejs1}></script>
-            <script src={corejs2}></script>
+            {/*<script src={corejs1}></script>
+            <script src={corejs2}></script>*/}
             
             {/* Plugin JavaScript */}
-            <script src={plugin}></script>
+            {/*<script src={plugin}></script>*/}
 
             {/* Contact Form JavaScript */}
-            <script src={contract_js1}></script>
-            <script src={contract_js2}></script>
+            {/*<script src={contract_js1}></script>
+            <script src={contract_js2}></script>*/}
 
             {/* Custom scripts for this template */}
-            <script src={custom_js}></script>
+            {/*<script src={custom_js}></script>*/}  
+                                 
+            
                       
           </div>
 
