@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import "@fortawesome/fontawesome-free";
-import "common-js";
-import 'jquery/src/jquery';
-import "jquery.easing";
 import getWeb3 from "./utils/getWeb3";
 import Chip from "./Chip.json";
 import "./App.css";
@@ -18,45 +14,6 @@ import rcp from "./startbootstrap-freelancer-gh-pages/img/portfolio/rcp4.jpg";
 import fonts from "./startbootstrap-freelancer-gh-pages/vendor/fontawesome-free/css/all.min.css";
 import theme_css from "./startbootstrap-freelancer-gh-pages/css/freelancer.css";
 
-class Login extends Component {
-  render() {
-    return(
-      <div className="login">
-          <h4>Login</h4>
-          <form>
-            <label>
-            ID:
-            <input type="text" name="login-id" />
-            PW:
-            <input type="password" name="login-password" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
-    )
-  }
-}
-
-class Join extends Component {
-  render() {
-    return(
-      <div className="join">
-        <h4>Join</h4>
-        <form>
-          <label>
-            ID:
-            <input type="text" name="join-id" />
-            PW:
-            <input type="password" name="join-pw" />
-            Your Ethereum Address
-            <input type="text" name="join-address" />
-          </label>
-          <input type="submit" value="Sumbit" />
-        </form>
-      </div>
-    )
-  }
-}
 
 class TieDraw extends Component {  
   render() {
@@ -395,15 +352,7 @@ class App extends Component {
   }
   
   render() {
-    if (this.state.myAccount === undefined) {
-      return (
-        <div>
-          <Login></Login>
-          <Join></Join>
-        </div>
-      );
-    } else {
-      return (
+     return (
         <React.Fragment>
           <div>
             <meta charSet="utf-8" />
@@ -654,5 +603,4 @@ class App extends Component {
       )
     }
   }
-}
 export default App;
