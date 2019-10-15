@@ -1,10 +1,6 @@
-/*global jQuery, padding*/
 import React, { Component } from "react";
 import "@fortawesome/fontawesome-free";
 import "common-js";
-//import jquery from "jquery";
-//window.$ = window.jQuery = jquery;
-//window.$ = window.jQuery = "./startbootstrap-freelancer-gh-pages/node_modules/jquery/dist/jquery.js"
 import 'jquery/src/jquery';
 import "jquery.easing";
 import getWeb3 from "./utils/getWeb3";
@@ -12,6 +8,8 @@ import Chip from "./Chip.json";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+
+// 이미지들
 import casino from "./startbootstrap-freelancer-gh-pages/img/portfolio/lottery.png"
 import blackjack from "./startbootstrap-freelancer-gh-pages/img/portfolio/black-jack.png";
 import dice from "./startbootstrap-freelancer-gh-pages/img/portfolio/dice.png";
